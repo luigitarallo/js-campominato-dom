@@ -14,6 +14,8 @@ let gridSize = 0;
 let bombList = [];
 // creo una variabile vuota dove inserire il conteggio dei click sulle celle
 let cellCount = 0;
+// creo una variabile booleana che possa cambiare al verificarsi di una condizione
+let gameOver = false;
 
 // al click del bottone associo una funzione che genera una griglia
 buttonCreate.addEventListener("click", function () {
@@ -54,6 +56,10 @@ function generateGrid() {
 
     // al click della cella
     cell.addEventListener("click", function () {
+      // Se gameOver è uguale a "true" non vengono eseguiti più click
+      if (gameOver) {
+        return; // Esci dalla funzione se il gioco è già finito
+      }
       // inserisco un controllo affinché non venga contato più volte il click della stessa casella
       if (!cell.classList.contains("clicked")) {
         cellCount++;
@@ -65,7 +71,7 @@ function generateGrid() {
         // Se sì aggiunge la classe Bomb
         cell.classList.add("bomb");
         alert("Hai perso! Punteggio: " + cellCount);
-        grid.innerHTML = "";
+        gameOver = true;
         cellCount = 0;
       }
       // aggiunge la classe azure alla cella
