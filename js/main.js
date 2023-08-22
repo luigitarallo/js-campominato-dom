@@ -54,7 +54,11 @@ function generateGrid() {
 
     // al click della cella
     cell.addEventListener("click", function () {
-      cellCount++;
+      // inserisco un controllo affinché non venga contato più volte il click della stessa casella
+      if (!cell.classList.contains("clicked")) {
+        cellCount++;
+        cell.classList.add("clicked");
+      }
       console.log(cellCount);
       // Verifica se la cella è una bomba
       if (bombList.includes(i)) {
