@@ -36,6 +36,7 @@ buttonCreate.addEventListener("click", function () {
 
 // definisco la funzione generateGrid()
 function generateGrid() {
+  // Se si verifica la condizione true, la cambio in false per poter ricliccare su genera griglia
   if (gameOver) {
     gameOver = false;
   }
@@ -46,6 +47,8 @@ function generateGrid() {
     const cell = document.createElement("div");
     // gli assegna la classe cella
     cell.classList.add("cell");
+
+    // inserisco questa condizione che in base alla difficoltà scelta, assegna una classe specifica che imposta la griglia
     if (levelGame == 3) {
       cell.classList.add("cell-hard");
     } else if (levelGame == 2) {
@@ -61,11 +64,14 @@ function generateGrid() {
     cell.addEventListener("click", function () {
       // Se gameOver è uguale a "true" non vengono eseguiti più click
       if (gameOver) {
-        return; // Esci dalla funzione se il gioco è già finito
+        // esci dalla funzione
+        return;
       }
       // inserisco un controllo affinché non venga contato più volte il click della stessa casella
       if (!cell.classList.contains("clicked")) {
+        // incremento la variabile di 1 per poter segnare il punteggio
         cellCount++;
+        // assegno una classe alla cella per poterla identificare ed evitare il click multiplo
         cell.classList.add("clicked");
       }
       console.log(cellCount);
@@ -74,6 +80,7 @@ function generateGrid() {
         // Se sì aggiunge la classe Bomb
         cell.classList.add("bomb");
         alert("Hai perso! Punteggio: " + (cellCount - 1));
+        // reimposto il conteggio a zero
         cellCount = 0;
         gameOver = true;
       }
@@ -81,6 +88,8 @@ function generateGrid() {
       cell.classList.add("lightskyblue");
       if (gridSize - bombList.length == cellCount) {
         alert("Hai vinto! Punteggio: " + (cellCount - 1));
+
+        // Cambio il valore della variabile in true in modo da evitare altri click dall'utente
         gameOver = true;
       }
       // visualizza l'indice della cella nella console
