@@ -13,6 +13,8 @@ let gridSize = 0;
 // creo una variabile vuota dove inserire la lista di bombe
 let bombList = [];
 
+let cellCount = 0;
+
 // al click del bottone associo una funzione che genera una griglia
 buttonCreate.addEventListener("click", function () {
   // ogni volta che clicco il tasto svuoto la grid
@@ -52,10 +54,13 @@ function generateGrid() {
 
     // al click della cella
     cell.addEventListener("click", function () {
+      cellCount++;
+      console.log(cellCount);
       // Verifica se la cella è una bomba
       if (bombList.includes(i)) {
         // Se sì aggiunge la classe Bomb
         cell.classList.add("bomb");
+        alert("Hai perso! Punteggio: " + cellCount);
       }
       // aggiunge la classe azure alla cella
       cell.classList.add("lightskyblue");
@@ -71,6 +76,7 @@ function generateGrid() {
 function generateBombList() {
   // ogni volta che viene invocata la funzione svuoto l'array bomblist
   bombList = [];
+  console.log(bombList);
   // creo un ciclo finché la lunghezza dell'array bomblist non sia di 16 elementi
   while (bombList.length < 16) {
     // ad ogni giro inserisco un numero random nella variabile bombcell che va da "1" a "il numero di celle create in base alla difficoltà"
@@ -82,5 +88,3 @@ function generateBombList() {
     }
   }
 }
-
-console.log(bombList);
