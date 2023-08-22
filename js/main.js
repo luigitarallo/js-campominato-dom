@@ -36,6 +36,9 @@ buttonCreate.addEventListener("click", function () {
 
 // definisco la funzione generateGrid()
 function generateGrid() {
+  if (gameOver) {
+    gameOver = false;
+  }
   // creo un ciclo for che conti da 1 a il numero di celle ricavate dal livello di difficoltà
   for (let i = 1; i <= gridSize; i++) {
     console.log(gridSize);
