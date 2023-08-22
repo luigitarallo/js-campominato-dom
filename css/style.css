@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#grid {
+  width: 900px;
+  height: 900px;
+  background-color: aqua;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background-color: blue;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell-hard {
+  width: calc(100% / 7);
+}
+
+.cell-medium {
+  width: calc(100% / 9);
+}
+
+.cell-easy {
+  width: calc(100% / 10);
+}
+
+.lightskyblue {
+  background-color: lightskyblue;
+}
+
+.bomb {
+  background-color: red;
+}
