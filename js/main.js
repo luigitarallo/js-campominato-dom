@@ -73,14 +73,15 @@ function generateGrid() {
       if (bombList.includes(i)) {
         // Se sì aggiunge la classe Bomb
         cell.classList.add("bomb");
-        alert("Hai perso! Punteggio: " + cellCount);
-        gameOver = true;
+        alert("Hai perso! Punteggio: " + (cellCount - 1));
         cellCount = 0;
+        gameOver = true;
       }
       // aggiunge la classe azure alla cella
       cell.classList.add("lightskyblue");
-      if (gridSize - bombList.length == 0) {
-        alert("Hai vinto! Punteggio: " + cellCount);
+      if (gridSize - bombList.length == cellCount) {
+        alert("Hai vinto! Punteggio: " + (cellCount - 1));
+        gameOver = true;
       }
       // visualizza l'indice della cella nella console
       console.log(i);
