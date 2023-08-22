@@ -47,15 +47,16 @@ function generateGrid() {
       cell.classList.add("cell-easy");
     }
     // Verifica se la cella è una bomba
-    if (bombList.includes(i)) {
-      cell.classList.add("bomb");
-    }
+
     // inserisce l'indice all'interno della cella
     cell.innerHTML = i;
 
     // al click della cella
     cell.addEventListener("click", function () {
       // aggiunge la classe azure alla cella
+      if (bombList.includes(i)) {
+        cell.classList.add("bomb");
+      }
       cell.classList.add("lightskyblue");
       // visualizza l'indice della cella nella console
       console.log(i);
