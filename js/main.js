@@ -12,7 +12,7 @@ let levelGame = 0;
 let gridSize = 0;
 // creo una variabile vuota dove inserire la lista di bombe
 let bombList = [];
-
+// creo una variabile vuota dove inserire il conteggio dei click sulle celle
 let cellCount = 0;
 
 // al click del bottone associo una funzione che genera una griglia
