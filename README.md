@@ -17,5 +17,12 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 
 **Generazione Bombe**
 
-- Genero 16 numeri casuali che rientrino nel numero di celle impostato tramite la difficoltà e controllando che l'indice generato non sia già presente
-  -
+- Creo una funzione ch generi 16 numeri casuali che rientrino nel numero di celle impostato tramite la difficoltà e controllando che l'indice generato non sia già presente
+  - salvo la lista delle bombe generata
+- Quando clicco sul tasto per generare la griglia invoco anche la funzione che generi randomicamente le bombe
+
+**Svolgimento gioco**
+
+- Ad ogni click della casella imposto un contatore che si incrementa di 1 per segnare il punteggio
+
+- **SE** il click avviene in una casella che contiene una bomba, aggiunge la classe _bomb_ e visualizzo un messaggio con il punteggio ottenuto e svuoto la griglia

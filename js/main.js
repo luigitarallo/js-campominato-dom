@@ -61,13 +61,18 @@ function generateGrid() {
         // Se sì aggiunge la classe Bomb
         cell.classList.add("bomb");
         alert("Hai perso! Punteggio: " + cellCount);
+        grid.innerHTML = "";
+        cellCount = 0;
       }
       // aggiunge la classe azure alla cella
       cell.classList.add("lightskyblue");
+      if (gridSize - bombList.length == 0) {
+        alert("Hai vinto! Punteggio: " + cellCount);
+      }
       // visualizza l'indice della cella nella console
       console.log(i);
     });
-    //   aggiunge la cella alla grid
+    // aggiunge la cella alla grid
     grid.append(cell);
   }
 }
