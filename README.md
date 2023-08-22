@@ -25,4 +25,4 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 
 - Ad ogni click della casella imposto un contatore che si incrementa di 1 **SE** la casella non è stata già cliccata, in questo modo segno il punteggio senza che l'utente possa barare
 
-- **SE** il click avviene in una casella che contiene una bomba, aggiunge la classe _bomb_ e visualizzo un messaggio con il punteggio ottenuto e svuoto la griglia
+- **SE** il click avviene in una casella che contiene una bomba, aggiunge la classe _bomb_ e visualizzo un messaggio con il punteggio ottenuto e impedisco altri possibili click da parte dell'utente
