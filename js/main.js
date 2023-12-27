@@ -1,4 +1,4 @@
-// inizializzo le variabili di cui necessito
+// * Inizializzo le variabili di cui necessito
 
 // prendo l'elemento button con ID dall'html e lo associo ad una variabile
 const buttonCreate = document.getElementById("create-grid");
