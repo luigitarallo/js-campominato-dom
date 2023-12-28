@@ -67,14 +67,14 @@ label {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #d2d0d0;
-  width: 40%;
+  width: 15%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
 }
 
