@@ -6,6 +6,12 @@ const buttonCreate = document.getElementById("create-grid");
 // prendo l'elemento div con ID grid e lo associo ad una variabile
 const grid = document.getElementById("grid");
 
+// Variabili per la modale
+const customModal = document.getElementById("customModal");
+const closeButton = document.getElementById("closeButton");
+const scoreElement = document.getElementById("score");
+const winModal = document.getElementById("winModal");
+
 // creo una variabile vuota dove inserire la selezione dell'utente al click
 let levelGame = 0;
 // creo una variabile vuota dove inserire la dimensione della griglia calcolata
@@ -42,7 +48,7 @@ function generateGrid() {
   }
   // creo un ciclo for che conti da 1 a il numero di celle ricavate dal livello di difficoltà
   for (let i = 1; i <= gridSize; i++) {
-    console.log(gridSize);
+    // console.log(gridSize);
     // per ogni giro crea una cella
     const cell = document.createElement("div");
     // gli assegna la classe cella
@@ -69,31 +75,33 @@ function generateGrid() {
       }
       // inserisco un controllo affinché non venga contato più volte il click della stessa casella
       if (!cell.classList.contains("clicked")) {
+        // nascondo gli indici delle caselle cliccate
+        cell.innerHTML = "";
         // incremento la variabile di 1 per poter segnare il punteggio
         cellCount++;
         // assegno una classe alla cella per poterla identificare ed evitare il click multiplo
         cell.classList.add("clicked");
       }
-      console.log(cellCount);
+      // console.log(cellCount);
       // Verifica se la cella è una bomba
       if (bombList.includes(i)) {
         // Se sì aggiunge la classe Bomb
         cell.classList.add("bomb");
-        alert("Hai perso! Punteggio: " + (cellCount - 1));
-        // reimposto il conteggio a zero
+        cell.innerHTML = "";
+        showCustomModal();
         cellCount = 0;
         gameOver = true;
       }
       // aggiunge la classe azure alla cella
-      cell.classList.add("lightskyblue");
+      cell.classList.add("green-cell");
       if (gridSize - bombList.length == cellCount) {
-        alert("Hai vinto! Punteggio: " + (cellCount - 1));
-
+        showCustomModal();
+        cellCount = 0;
         // Cambio il valore della variabile in true in modo da evitare altri click dall'utente
         gameOver = true;
       }
       // visualizza l'indice della cella nella console
-      console.log(i);
+      // console.log(i);
     });
     // aggiunge la cella alla grid
     grid.append(cell);
@@ -104,7 +112,7 @@ function generateGrid() {
 function generateBombList() {
   // ogni volta che viene invocata la funzione svuoto l'array bomblist
   bombList = [];
-  console.log(bombList);
+  // console.log(bombList);
   // creo un ciclo finché la lunghezza dell'array bomblist non sia di 16 elementi
   while (bombList.length < 16) {
     // ad ogni giro inserisco un numero random nella variabile bombcell che va da "1" a "il numero di celle create in base alla difficoltà"
@@ -116,3 +124,12 @@ function generateBombList() {
     }
   }
 }
+
+function showCustomModal() {
+  customModal.style.display = "block";
+  scoreElement.textContent = cellCount - 1;
+}
+
+closeButton.addEventListener("click", function () {
+  customModal.style.display = "none";
+});
